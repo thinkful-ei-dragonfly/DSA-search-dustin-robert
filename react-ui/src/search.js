@@ -2,8 +2,8 @@
 // [3, 5, 6, 8, 11, 12, 14, 15, 17, 18]  // looking for 16 // 12, 17, 14, 15 return false
 
 export default class Search {
-  
   constructor() {
+
     this.testArray = [
       89,
       30,
@@ -104,11 +104,17 @@ export default class Search {
       78,
       40,
       14,
-      5
+      5,
     ];
   }
 
-  binarySearch(value, array = this.testArray, start=0, end=array.length, count = 0) {
+  binarySearch(
+    value,
+    array = this.testArray.sort(),
+    start = 0,
+    end = array.length,
+    count = 0
+  ) {
     // var start = start === undefined ? 0 : start;
     // var end = end === undefined ? array.length : end;
 
@@ -122,11 +128,12 @@ export default class Search {
 
     console.log(start, end);
     if (item === value) {
+      console.log(array);
       return { value, index, count };
     } else if (item < value) {
-      return this.binarySearch(value, array,  index + 1, end, count);
+      return this.binarySearch(value, array, index + 1, end, count);
     } else if (item > value) {
-      return this.binarySearch(value, array,  start, index - 1, count);
+      return this.binarySearch(value, array, start, index - 1, count);
     }
   }
 
@@ -135,9 +142,9 @@ export default class Search {
     for (let i = 0; i < array.length; i++) {
       index++;
       if (array[i] === item) {
-        return {value: item, index: i, count: i + 1};
+        return { value: item, index: i, count: i + 1 };
       }
     }
-    return {value: item, index: -1, count: index + 1};
+    return { value: item, index: -1, count: index + 1 };
   }
 }

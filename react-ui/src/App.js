@@ -12,13 +12,13 @@ class App extends React.Component {
     search: new Search(),
   };
 
-  handleBinarySearch = (value) =>{
-    let result = this.state.search.binarySearch(value);
+  handleBinarySearch = (value) => {
+    let result = this.state.search.binarySearch(parseInt(value));
     this.setState(result);
   }
 
   handleLinearSearch = (value) =>{
-    let result = this.state.search.linearSearch(value);
+    let result = this.state.search.linearSearch(parseInt(value));
     this.setState(result);
   }
 
@@ -29,7 +29,7 @@ class App extends React.Component {
           handleBinarySearch={this.handleBinarySearch}
           handleLinearSearch={this.handleLinearSearch}
         />
-        {(this.state.count && this.state.index > 0) && (
+        {(this.state.count && this.state.index >= 0) && (
           <p>We found the element, {this.state.value} at index {this.state.index} and it took us {this.state.count} tries</p>
         )}
         {this.state.index === -1 && <p>{this.state.value} wasn't found and we searched {this.state.count} times</p>}
