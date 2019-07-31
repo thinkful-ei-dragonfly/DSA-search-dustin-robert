@@ -110,7 +110,7 @@ export default class Search {
 
   binarySearch(
     value,
-    array = this.testArray.sort(),
+    array = this.testArray.sort(function(a, b){return a-b}),
     start = 0,
     end = array.length,
     count = 0
