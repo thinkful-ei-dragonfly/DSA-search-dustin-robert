@@ -154,6 +154,7 @@ class BinarySearchTree {
       console.log('error, hit end?');
     }
   }
+  
 }
 
 module.exports = BinarySearchTree;
